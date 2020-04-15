@@ -21,7 +21,7 @@ def debug(o):
     for i, mer in enumerate(merg):
       symb = '1' if mer else '0'
       if i >= q.x and i < q.x + q.w and j >= q.y and j < q.y + q.h:
-	    symb = OKBLUE + symb + ENDC
+        symb = OKBLUE + symb + ENDC
       print (symb, end='')
     print ()
 
@@ -71,47 +71,47 @@ for y in range(n):
   x = 0
   while x < m:
     
-	# if allready merged -> continue to look at next tile
+    # if allready merged -> continue to look at next tile
     if merged[y][x]:
       x += 1
       continue
 
-	# block at world coordinates
+    # block at world coordinates
     t = world[y][x]
-	# width and height of quad
+    # width and height of quad
     w = h = 1
 
-		# x + w < m -> while in width bounds
-		# t == world[y][x + w] -> while its the same kind of tile
-		# not merged[y][x + w] -> not allready looked at
+    # x + w < m -> while in width bounds
+    # t == world[y][x + w] -> while its the same kind of tile
+    # not merged[y][x + w] -> not allready looked at
     while x + w < m and t == world[y][x + w] and not merged[y][x + w]: 
-	  # increase width and continue expanding to the right
+      # increase width and continue expanding to the right
       w += 1
 
-	# while in height bounds
+    # while in height bounds
     while y + h < n:
       good = True
-	  # loop through row
+      # loop through row
       for i in range(w):
-		# if the tile is different -> cant expand downwards
+        # if the tile is different -> cant expand downwards
         if t != world[y + h][x + i]:
           good = False
           break
       if good:
-		# the whole row of the width of the row above matches -> expand height
+        # the whole row of the width of the row above matches -> expand height
         h += 1
       else:
         break
     
     for j in range(h):
       for i in range(w):
-		# set all of the new matched tiles to True to not further look at
+        # set all of the new matched tiles to True to not further look at
         merged[y + j][x + i] = True
     
-	# append a new Quad to the output
+    # append a new Quad to the output
     o.append(Quad(x, y, w, h, t))
-	# expand by with and continue looking there for new quads
+    # expand by with and continue looking there for new quads
     x += w
 
-	# dump debug info to console
+    # dump debug info to console
     debug(o)
