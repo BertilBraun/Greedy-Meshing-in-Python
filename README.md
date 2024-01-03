@@ -11,7 +11,7 @@ The repository contains two main Python scripts:
 
 ## Problem Definition
 
-Given a voxel grid, where each voxel is defined by an int type, the goal is to generate a reduced set of faces required to represent the external surface of the structure formed by the solid voxels. This reduction in the number of faces is achieved by merging adjacent voxels that share the same face. This achieves a simplified mesh that has at most 8x the number of faces that a perfect mesh would have [https://0fps.net/2012/06/30/meshing-in-a-minecraft-game/#:~:text=mesh%20actually%20is%3A-,Theorem,-%3A%C2%A0The%20greedy](reference).
+Given a voxel grid, where each voxel is defined by an int type, the goal is to generate a reduced set of faces required to represent the external surface of the structure formed by the solid voxels. This reduction in the number of faces is achieved by merging adjacent voxels that share the same face. This achieves a simplified mesh that has at most 8x the number of faces that a perfect mesh would have [reference](https://0fps.net/2012/06/30/meshing-in-a-minecraft-game/#:~:text=mesh%20actually%20is%3A-,Theorem,-%3A%C2%A0The%20greedy).
 
 ## Implementation Details
 
